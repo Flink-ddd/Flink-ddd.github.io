@@ -110,7 +110,7 @@
             .hero { flex-direction: column; text-align: center; padding: 50px 20px; gap: 30px; }
             .bio-info { text-align: center; }
             .contact-bar { justify-content: center; }
-            .avatar { width: 180px; height: 180px; }
+            .avatar { width: 180px; height: 220px; }
         }
     </style>
 </head>
@@ -154,13 +154,13 @@
                         <span class="timeline-location">📍 Singapore</span>
                     </div>
                     <h3>GitHub Open-Source Contributions</h3>
-                    <p style="color:var(--accent-blue); font-weight:600;">pytorch / vLLM / DeepSpeed | AI Infrastructure Engineer</p>
+                    <p style="color:var(--accent-blue); font-weight:600;">pytorch / vLLM / DeepSpeed Contributor| AI Infrastructure Engineer</p>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-header">
                         <span class="timeline-date">2021/09 – 2024/05</span>
-                        <span class="timeline-location">📍 Beijing</span>
+                        <span class="timeline-location">📍 Beijing, China</span>
                     </div>
                     <h3>Buchang Tao Medical Cloud</h3>
                     <p>Java Team Lead</p>
@@ -169,7 +169,7 @@
                 <div class="timeline-item">
                     <div class="timeline-header">
                         <span class="timeline-date">2019/10 – 2021/08</span>
-                        <span class="timeline-location">📍 Beijing</span>
+                        <span class="timeline-location">📍 Beijing, China</span>
                     </div>
                     <h3>Medbanks</h3>
                     <p>Senior Java Development Engineer</p>
@@ -178,7 +178,7 @@
                 <div class="timeline-item">
                     <div class="timeline-header">
                        <span class="timeline-date">2017/07 – 2019/09</span>
-                       <span class="timeline-location">📍 Beijing</span>
+                       <span class="timeline-location">📍 Beijing, China</span>
                     </div>
                     <h3>WeDoctor Group</h3>
                     <p>Java Development Engineer</p>
@@ -267,7 +267,7 @@
             <div class="skills-wrapper">
                 <h2 style="text-align:center; margin-bottom:40px; color:var(--accent-blue);">Core Expertise & Technical Stack</h2>
                 <ul class="skills-ul">
-                    <li>1. Proficient in Java and Go, and experienced with Python; has good coding standards and programming habits.</li>
+                    <li>1. Proficient in Java and experienced with Python; has good coding standards and programming habits.</li>
                     <li>2. Proficient in using web servers such as Tomcat and Jetty, and familiar with their related configurations.</li>
                     <li>3. Proficient in operating databases such as MySQL, MongoDB, Redis, ElasticSearch, Neo4j.</li>
                     <li>4. Proficient in Spring, Spring MVC, Spring Boot, Spring Cloud, MyBatis / MyBatis-Plus, DDD, with practical experience in encapsulating business with DDD and leading the adoption of DDD in multiple large projects.</li>
@@ -312,11 +312,6 @@
                     tags: ["# MLA", "# DeepSeek", "# Triton kernel"] 
                 },
                 { 
-                    desc: "This PR fixed issues where batch processing in llm.chat() would fail and leave orphaned requests.", 
-                    link: "https://github.com/vllm-project/vllm/pull/27420", 
-                    tags: ["# llm.chat", "# batch processing"] 
-                },
-                { 
                     desc: "This PR fixed a potential out-of-bounds (OOB) memory access issue in the gather_and_maybe_dequant_cache CUDA kernel.", 
                     link: "https://github.com/vllm-project/vllm/pull/28760", 
                     tags: ["# CUDA kernel", "# OOB"] 
@@ -330,7 +325,17 @@
                     desc: "This PR fixed an issue in the bench serve tool where the “total input tokens” and “total token throughput” were incorrectly reported as 0 for Rerank/Embedding models.", 
                     link: "https://github.com/vllm-project/vllm/pull/30596", 
                     tags: ["# bench serve", "# Rerank"] 
-                }
+                },
+                { 
+                    desc: "This PR fixed issues where batch processing in llm.chat() would fail and leave orphaned requests.", 
+                    link: "https://github.com/vllm-project/vllm/pull/27420", 
+                    tags: ["# llm.chat", "# batch processing"] 
+                },
+                { 
+                    desc: "Deeply involved in research on vLLM Sleep Mode Blog Article (Vensen Mu).", 
+                    link: "https://blog.vllm.ai/2025/10/26/sleep-mode.html", 
+                    tags: ["# sleep mode level1", "# sleep mode level2"] 
+                },
             ],
             deepspeed: [
                 { desc: "This PR exposed GradBucket in the deepspeed.comm API.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7400", tags: ["# GradBucket", "# comm API"] },
