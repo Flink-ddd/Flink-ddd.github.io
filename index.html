@@ -251,28 +251,48 @@
 
         const prData = {
             pytorch: [
-                { desc: "Implemented __sym_float__ for SymBool to fix a multiplication TypeError.", link: "https://github.com/pytorch/pytorch/pull/165264" }
+                { desc: "Implemented __sym_float__ for SymBool to fix a multiplication TypeError.", link: "https://github.com/pytorch/pytorch/pull/165264",tags: ["# pytorch dynamo", "# SymBool"] }
             ],
             vllm: [
-                { desc: "This PR fixed issues where batch processing in llm.chat() would fail and leave orphaned requests.", link: "https://github.com/vllm-project/vllm/pull/27420" },
-                { desc: "This PR fixed a potential out-of-bounds (OOB) memory access issue in the gather_and_maybe_dequant_cache CUDA kernel.", link: "https://github.com/vllm-project/vllm/pull/28760" },
-                { desc: "This PR fixed garbled model outputs after wake-up when using FP8 KV-cache under sleep mode level 2, addressing issues on both NVIDIA and AMD platforms.", link: "https://github.com/vllm-project/vllm/pull/28783" },
-                { desc: "This PR fixed an issue in the bench serve tool where the “total input tokens” and “total token throughput” were incorrectly reported as 0 for Rerank/Embedding models.", link: "https://github.com/vllm-project/vllm/pull/30596" },
-                { desc: "This PR fixed a crash during long-context inference (>16k tokens) for MLA-based models (e.g., DeepSeek-V2/V3/R1) by ensuring input tensor contiguity in the per_token_quant_int8 quantization kernel.", link: "https://github.com/vllm-project/vllm/pull/31637" }
+                { 
+                    desc: "This PR fixed a crash during long-context inference (>16k tokens) for MLA-based models (e.g., DeepSeek-V2/V3/R1) by ensuring input tensor contiguity in the per_token_quant_int8 kernel.", 
+                    link: "https://github.com/vllm-project/vllm/pull/31637", 
+                    tags: ["# MLA", "# DeepSeek", "# Triton kernel"] 
+                },
+                { 
+                    desc: "This PR fixed issues where batch processing in llm.chat() would fail and leave orphaned requests.", 
+                    link: "https://github.com/vllm-project/vllm/pull/27420", 
+                    tags: ["# llm.chat", "# batch processing"] 
+                },
+                { 
+                    desc: "This PR fixed a potential out-of-bounds (OOB) memory access issue in the gather_and_maybe_dequant_cache CUDA kernel.", 
+                    link: "https://github.com/vllm-project/vllm/pull/28760", 
+                    tags: ["# CUDA kernel", "# OOB"] 
+                },
+                { 
+                    desc: "This PR fixed garbled model outputs after wake-up when using FP8 KV-cache under sleep mode level 2, addressing issues on both NVIDIA and AMD platforms.", 
+                    link: "https://github.com/vllm-project/vllm/pull/28783", 
+                    tags: ["# sleep mode", "# FP8", "# KV-cache"] 
+                },
+                { 
+                    desc: "This PR fixed an issue in the bench serve tool where the “total input tokens” and “total token throughput” were incorrectly reported as 0 for Rerank/Embedding models.", 
+                    link: "https://github.com/vllm-project/vllm/pull/30596", 
+                    tags: ["# bench serve", "# Rerank"] 
+                }
             ],
             deepspeed: [
-                { desc: "This PR exposed GradBucket in the deepspeed.comm API.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7400"},
-                { desc: "This PR added the missing dtype attribute to the ParameterBase setter.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7378"},
-                { desc: "This PR fixed an issue where WarmupLR did not inherit the optimizer learning rate when no scheduler was specified.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7360"}
+                { desc: "This PR exposed GradBucket in the deepspeed.comm API.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7400", tags: ["# GradBucket", "# comm API"] },
+                { desc: "This PR added the missing dtype attribute to the ParameterBase setter.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7378", tags: ["# ParameterBase"] },
+                { desc: "This PR fixed an issue where WarmupLR did not inherit the optimizer learning rate when no scheduler was specified.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7360", tags: ["# WarmupLR", "# Optimizer"] }
             ],
             transformers: [
-                { desc: "This PR fixed tensor shape issues when input_size = 1.", link: "https://github.com/huggingface/transformers/pull/38856" }
+                { desc: "This PR fixed tensor shape issues when input_size = 1.", link: "https://github.com/huggingface/transformers/pull/38856", tags: ["# tensor shape"] }
             ]
         };
 
         let currentPRProject = 'pytorch';
         let currentPRPage = 1;
-        const prsPerPage = 5;
+        const prsPerPage = 3;
 
         function renderPRs() {
             const listContainer = document.getElementById('pr-list-container');
