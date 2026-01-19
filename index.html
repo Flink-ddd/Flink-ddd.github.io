@@ -51,6 +51,20 @@
         .diagram-frame { width: 100%; max-width: 1000px; background: #fff; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); padding: 40px; border: 1px solid #f0f0f0; display: flex; justify-content: center; min-height: 480px; box-sizing: border-box; }
         .diagram-frame img { width: 100%; height: auto; border-radius: 8px; }
 
+        /* PR Tabs & List Styles */
+        .pr-tabs-nav { display: flex; gap: 10px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px; flex-wrap: wrap; width: 100%; justify-content: flex-start; }
+        .pr-tab-btn { background: none; border: none; padding: 8px 16px; font-weight: 600; cursor: pointer; color: #666; border-radius: 6px; transition: 0.2s; }
+        .pr-tab-btn:hover { background: #f6f8fa; color: var(--accent-blue); }
+        .pr-tab-btn.active { background: #eff6ff; color: var(--accent-blue); }
+        .pr-list { min-height: 350px; width: 100%; text-align: left; }
+        .pr-item { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .pr-item:last-child { border-bottom: none; }
+        .pr-desc { font-size: 1.05em; color: #1f2328; margin-bottom: 5px; display: block; font-weight: 500; }
+        .pr-link { font-size: 0.9em; color: var(--accent-blue); text-decoration: none; word-break: break-all; }
+        .pr-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; width: 100%; }
+        .page-btn { padding: 5px 12px; border: 1px solid #d0d7de; background: #fff; border-radius: 4px; cursor: pointer; font-size: 0.9em; }
+        .page-btn.active { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
+
         .skills-wrapper { background: #fff; padding: 50px; border-radius: 16px; border: 1px solid var(--border-grey); margin: 0 auto 100px auto; max-width: 950px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .skills-ul { list-style: none; padding: 0; text-align: left; }
         .skills-ul li { margin-bottom: 18px; font-size: 1.1em; line-height: 1.6; display: flex; align-items: flex-start; }
@@ -151,42 +165,49 @@
                 <div class="project-block">
                     <div class="project-meta">
                         <h3>3. Top-tier AI Project Contributions</h3>
-                        <p><b>PyTorch:</b> Active contributions to core tensor operations and performance optimizations.</p>
-                        <p><b>vLLM:</b> Focused on ROCm inference acceleration and Triton kernel stability.</p>
-                        <p><b>DeepSpeed:</b> Optimization of memory management and distributed training efficiency.</p>
+                        <p>Actively contributing to industry-leading open-source AI frameworks, focusing on kernel optimization and inference stability.</p>
                     </div>
-                    <div class="diagram-frame">
-                        <p style="color:#aaa; font-style:italic;">[ Open Source Contribution Logic Flow Placeholder ]</p>
+                    <div class="diagram-frame" style="flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
+                        <div class="pr-tabs-nav">
+                            <button class="pr-tab-btn active" onclick="switchPRTab('pytorch')">PyTorch</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('vllm')">vLLM</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('deepspeed')">DeepSpeed</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('ray')">Ray</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('transformers')">Transformers</button>
+                        </div>
+                        <div id="pr-list-container" class="pr-list"></div>
+                        <div id="pr-pagination" class="pr-pagination"></div>
                     </div>
                 </div>
             </div>
 
             <div id="java-pane" class="tab-pane">
                 <div class="project-block">
-                    <div class="project-meta"><h3>1. Payment Gateway System</h3><p>[High-concurrency distributed transaction and security architecture]</p></div>
-                    <div class="diagram-frame"><p style="color:#aaa;">[ Payment Gateway Architecture Diagram ]</p></div>
-                </div>
-                <div class="project-block">
-                    <div class="project-meta"><h3>2. Instant Messaging (IM) Center</h3><p>[Distributed WebSocket cluster and Kafka message coordination]</p></div>
-                    <div class="diagram-frame"><p style="color:#aaa;">[ IM Center Architecture Diagram ]</p></div>
-                </div>
-                <div class="project-block">
-                    <div class="project-meta"><h3>3. Enterprise Search Center</h3><p>[Real-time indexing and search optimization with ElasticSearch]</p></div>
-                    <div class="diagram-frame"><p style="color:#aaa;">[ Search Center Architecture Diagram ]</p></div>
-                </div>
-                <div class="project-block">
                     <div class="project-meta">
-                        <h3>4. Flink Real-time data warehouse</h3>
+                        <h3>1. Flink Real-time data warehouse</h3>
                         <p>The real-time data warehouse technology architecture based on Flink + Flink-CDC covers near real-time data synchronization from multiple data sources.</p>
                     </div>
                     <div class="diagram-frame">
                         <img src="data-center.png" alt="Flink Real-time data warehouse">
                     </div>
                 </div>
-                <div class="project-block">
-                    <div class="project-meta"><h3>5. Microservices & DevOps Ecosystem</h3><p>[Service governance and end-to-end CI/CD automation pipeline]</p></div>
+                 <div class="project-block">
+                    <div class="project-meta"><h3>2. Microservices & DevOps Ecosystem</h3><p>[Service governance and end-to-end CI/CD automation pipeline]</p></div>
                     <div class="diagram-frame"><p style="color:#aaa;">[ DevOps & Microservices Architecture Diagram ]</p></div>
                 </div>
+                <div class="project-block">
+                    <div class="project-meta"><h3>3. Enterprise Search Center</h3><p>[Real-time indexing and search optimization with ElasticSearch]</p></div>
+                    <div class="diagram-frame"><p style="color:#aaa;">[ Search Center Architecture Diagram ]</p></div>
+                </div>
+                <div class="project-block">
+                    <div class="project-meta"><h3>4. Payment Gateway System</h3><p>[High-concurrency distributed transaction and security architecture]</p></div>
+                    <div class="diagram-frame"><p style="color:#aaa;">[ Payment Gateway Architecture Diagram ]</p></div>
+                </div>
+                <div class="project-block">
+                    <div class="project-meta"><h3>5. Instant Messaging (IM) Center</h3><p>[Distributed WebSocket cluster and Kafka message coordination]</p></div>
+                    <div class="diagram-frame"><p style="color:#aaa;">[ IM Center Architecture Diagram ]</p></div>
+                </div>
+                
             </div>
         </section>
 
@@ -225,7 +246,77 @@
             event.currentTarget.classList.add('active');
             document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
             document.getElementById(type + '-pane').classList.add('active');
+            if(type === 'ai') renderPRs();
         }
+
+        const prData = {
+            pytorch: [
+                { desc: "Implemented __sym_float__ for SymBool to fix a multiplication TypeError.", link: "https://github.com/pytorch/pytorch/pull/165264" }
+            ],
+            vllm: [
+                { desc: "This PR fixed issues where batch processing in llm.chat() would fail and leave orphaned requests.", link: "https://github.com/vllm-project/vllm/pull/27420" },
+                { desc: "This PR fixed a potential out-of-bounds (OOB) memory access issue in the gather_and_maybe_dequant_cache CUDA kernel.", link: "https://github.com/vllm-project/vllm/pull/28760" },
+                { desc: "This PR fixed garbled model outputs after wake-up when using FP8 KV-cache under sleep mode level 2, addressing issues on both NVIDIA and AMD platforms.", link: "https://github.com/vllm-project/vllm/pull/28783" },
+                { desc: "This PR fixed an issue in the bench serve tool where the “total input tokens” and “total token throughput” were incorrectly reported as 0 for Rerank/Embedding models.", link: "https://github.com/vllm-project/vllm/pull/30596" },
+                { desc: "This PR fixed a crash during long-context inference (>16k tokens) for MLA-based models (e.g., DeepSeek-V2/V3/R1) by ensuring input tensor contiguity in the per_token_quant_int8 quantization kernel.", link: "https://github.com/vllm-project/vllm/pull/31637" }
+            ],
+            deepspeed: [
+                { desc: "This PR exposed GradBucket in the deepspeed.comm API.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7400"},
+                { desc: "This PR added the missing dtype attribute to the ParameterBase setter.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7378"},
+                { desc: "This PR fixed an issue where WarmupLR did not inherit the optimizer learning rate when no scheduler was specified.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7360"}
+            ],
+            transformers: [
+                { desc: "This PR fixed tensor shape issues when input_size = 1.", link: "https://github.com/huggingface/transformers/pull/38856" }
+            ]
+        };
+
+        let currentPRProject = 'pytorch';
+        let currentPRPage = 1;
+        const prsPerPage = 5;
+
+        function renderPRs() {
+            const listContainer = document.getElementById('pr-list-container');
+            const paginationContainer = document.getElementById('pr-pagination');
+            if(!listContainer) return;
+            
+            const data = prData[currentPRProject] || [];
+            const start = (currentPRPage - 1) * prsPerPage;
+            const end = start + prsPerPage;
+            const pageItems = data.slice(start, end);
+
+            listContainer.innerHTML = pageItems.map(item => `
+                <div class="pr-item">
+                    <span class="pr-desc">▹ ${item.desc}</span>
+                    <a href="${item.link}" target="_blank" class="pr-link">${item.link}</a>
+                </div>
+            `).join('');
+
+            const totalPages = Math.ceil(data.length / prsPerPage);
+            let paginationHtml = '';
+            if (totalPages > 1) {
+                for (let i = 1; i <= totalPages; i++) {
+                    paginationHtml += `<button class="page-btn ${i === currentPRPage ? 'active' : ''}" onclick="changePRPage(${i})">${i}</button>`;
+                }
+            }
+            paginationContainer.innerHTML = paginationHtml;
+        }
+
+        function switchPRTab(project) {
+            currentPRProject = project;
+            currentPRPage = 1;
+            document.querySelectorAll('.pr-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase() === project.toLowerCase()) btn.classList.add('active');
+            });
+            renderPRs();
+        }
+
+        function changePRPage(page) {
+            currentPRPage = page;
+            renderPRs();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderPRs);
     </script>
 </body>
 </html>
