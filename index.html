@@ -150,7 +150,6 @@
                             <button class="pr-tab-btn active" onclick="switchPRTab('pytorch')">PyTorch</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('vllm')">vLLM</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('deepspeed')">DeepSpeed</button>
-                            <button class="pr-tab-btn" onclick="switchPRTab('ray')">Ray</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('transformers')">Transformers</button>
                         </div>
                         <div id="pr-list-container" class="pr-list"></div>
@@ -180,7 +179,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
             <div id="java-pane" class="tab-pane">
                 <div class="project-block">
@@ -309,6 +308,9 @@
                 <div class="pr-item">
                     <span class="pr-desc">▹ ${item.desc}</span>
                     <a href="${item.link}" target="_blank" class="pr-link">${item.link}</a>
+                    <div class="pr-keywords">
+                        ${(item.tags || []).map(tag => `<span class="kw-item">${tag}</span>`).join('')}
+                    </div>
                 </div>
             `).join('');
 
