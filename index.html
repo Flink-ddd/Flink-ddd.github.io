@@ -201,12 +201,12 @@
                     </div>
                     <div class="diagram-frame" style="flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
                         <div class="pr-tabs-nav">
+                            <button class="pr-tab-btn" onclick="switchPRTab('cutlass')">cutlass</button>
                             <button class="pr-tab-btn active" onclick="switchPRTab('pytorch')">PyTorch</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('vLLM')">vLLM</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('omni')">omni</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('deepspeed')">DeepSpeed</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('transformers')">Transformers</button>
-                            <button class="pr-tab-btn" onclick="switchPRTab('omni')">omni</button>
-                            <button class="pr-tab-btn" onclick="switchPRTab('cutlass')">cutlass</button>
                         </div>
                         <div id="pr-list-container" class="pr-list"></div>
                         <div id="pr-pagination" class="pr-pagination"></div>
@@ -315,6 +315,10 @@
         }
 
         const prData = {
+            cutlass: [
+                { desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
+                link: "https://github.com/NVIDIA/cutlass/pull/3148", tags: ["# CuTeDSL", "# JIT kernel", "# dynamic shapes", "cutlass"] }
+            ],
             pytorch: [
                 { desc: "Implemented __sym_float__ for SymBool to fix a multiplication TypeError.", link: "https://github.com/pytorch/pytorch/pull/165264",tags: ["# pytorch dynamo", "# SymBool"] }
             ],
@@ -350,6 +354,10 @@
                     tags: ["# sleep mode level1", "# sleep mode level2"] 
                 },
             ],
+            omni: [
+                { desc: "This PR mainly implements sleep mode ACK, enabling training and pushing of the card. At that time, when sleeping, the video memory was released by more than 98%.", 
+                link: "https://github.com/vllm-project/vllm-omni/pull/2022", tags: ["# sleep mode"] }
+            ],
             deepspeed: [
                 { desc: "This PR Resolve Rank index out of range during BWD when sp_size < world_size in Ulysses.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7809", tags: ["# sequence-parallelism", "# ulysses"] },
                 { desc: "This PR exposed GradBucket in the deepspeed.comm API.", link: "https://github.com/deepspeedai/DeepSpeed/pull/7400", tags: ["# GradBucket", "# comm API"] },
@@ -358,14 +366,6 @@
             ],
             transformers: [
                 { desc: "This PR fixed tensor shape issues when input_size = 1.", link: "https://github.com/huggingface/transformers/pull/38856", tags: ["# tensor shape"] }
-            ],
-            omni: [
-                { desc: "This PR mainly implements sleep mode ACK, enabling training and pushing of the card. At that time, when sleeping, the video memory was released by more than 98%.", 
-                link: "https://github.com/vllm-project/vllm-omni/pull/2022", tags: ["# sleep mode"] }
-            ],
-            cutlass: [
-                { desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
-                link: "https://github.com/NVIDIA/cutlass/pull/3148", tags: ["# CuTeDSL", "# JIT kernel", "# dynamic shapes", "cutlass"] }
             ]
         };
 
