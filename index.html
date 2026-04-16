@@ -205,7 +205,8 @@
                             <button class="pr-tab-btn" onclick="switchPRTab('vLLM')">vLLM</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('deepspeed')">DeepSpeed</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('transformers')">Transformers</button>
-                            <button class="pr-tab-btn" onclick="switchPRTab('vLLM-omni')">vLLM-omni</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('omni')">omni</button>
+                            <button class="pr-tab-btn" onclick="switchPRTab('cutlass')">cutlass</button>
                         </div>
                         <div id="pr-list-container" class="pr-list"></div>
                         <div id="pr-pagination" class="pr-pagination"></div>
@@ -358,8 +359,13 @@
             transformers: [
                 { desc: "This PR fixed tensor shape issues when input_size = 1.", link: "https://github.com/huggingface/transformers/pull/38856", tags: ["# tensor shape"] }
             ],
-            vLLM-omni: [
-                { desc: "This PR ", link: "https://github.com/huggingface/transformers/pull/38856", tags: ["# tensor shape"] }
+            omni: [
+                { desc: "This PR mainly implements sleep mode ACK, enabling training and pushing of the card. At that time, when sleeping, the video memory was released by more than 98%.", 
+                link: "https://github.com/vllm-project/vllm-omni/pull/2022", tags: ["# sleep mode"] }
+            ],
+            cutlass: [
+                { desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
+                link: "https://github.com/NVIDIA/cutlass/pull/3148", tags: ["# CuTeDSL", "# JIT kernel", "# dynamic shapes", "cutlass"] }
             ]
         };
 
