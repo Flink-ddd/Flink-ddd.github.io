@@ -323,6 +323,11 @@
                     tags: ["# CUDA kernel", "# OOB"] 
                 },
                 { 
+                    desc: "This PR fixed an illegal memory access error in the causal_conv1d Triton kernel for Long sequences when using Mamba.", 
+                    link: "https://github.com/vllm-project/vllm/pull/41617", 
+                    tags: ["# Mamba", "# causal_conv1d Triton kernel", "# CUDA Illegal Memory Access"] 
+                },
+                { 
                     desc: "This PR fixed garbled model outputs after wake-up when using FP8 KV-cache under sleep mode level 2, addressing issues on both NVIDIA and AMD platforms.", 
                     link: "https://github.com/vllm-project/vllm/pull/28783", 
                     tags: ["# sleep mode", "# FP8", "# KV-cache"] 
