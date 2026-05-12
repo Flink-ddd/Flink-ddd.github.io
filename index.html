@@ -305,8 +305,16 @@
 
         const prData = {
             cutlass: [
-                { desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
-                link: "https://github.com/NVIDIA/cutlass/pull/3148", tags: ["# CuTeDSL", "# JIT kernel", "# dynamic shapes", "cutlass"] }
+                { 
+                    desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
+                    link: "https://github.com/NVIDIA/cutlass/pull/3148", 
+                    tags: ["# CuTeDSL", "# JIT kernel", "# dynamic shapes", "cutlass"] 
+                },
+                { 
+                    desc: "This PR fixed SM70/72 support range upper bound for CUDA 13.0+ in cutlass.", 
+                    link: "https://github.com/NVIDIA/cutlass/pull/3166", 
+                    tags: ["# CMake", "# CUDA 13.0", "cutlass"] 
+                }
             ],
             pytorch: [
                 { desc: "Implemented __sym_float__ for SymBool to fix a multiplication TypeError.", link: "https://github.com/pytorch/pytorch/pull/165264",tags: ["# pytorch dynamo", "# SymBool"] }
@@ -368,7 +376,7 @@
             ]
         };
 
-        let currentPRProject = 'pytorch';
+        let currentPRProject = 'vLLM';
         let currentPRPage = 1;
         const prsPerPage = 3;
 
