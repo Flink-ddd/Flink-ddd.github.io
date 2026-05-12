@@ -313,11 +313,6 @@
             ],
             vLLM: [
                 { 
-                    desc: "This PR fixed a crash during long-context inference (>16k tokens) for MLA-based models (e.g., DeepSeek-V2/V3/R1) by ensuring input tensor contiguity in the per_token_quant_int8 kernel.", 
-                    link: "https://github.com/vllm-project/vllm/pull/31637", 
-                    tags: ["# MLA", "# DeepSeek", "# Triton kernel"] 
-                },
-                { 
                     desc: "This PR fixed a potential out-of-bounds (OOB) memory access issue in the gather_and_maybe_dequant_cache CUDA kernel.", 
                     link: "https://github.com/vllm-project/vllm/pull/28760", 
                     tags: ["# CUDA kernel", "# OOB"] 
@@ -326,6 +321,16 @@
                     desc: "This PR fixed an illegal memory access error in the causal_conv1d Triton kernel for Long sequences when using Mamba.", 
                     link: "https://github.com/vllm-project/vllm/pull/41617", 
                     tags: ["# Mamba", "# causal_conv1d Triton kernel", "# CUDA Illegal Memory Access"] 
+                },
+                { 
+                    desc: "This PR fixed int32 overflow in DeepGEMM SiLU/mul FP8 Triton kernel", 
+                    link: "https://github.com/vllm-project/vllm/pull/42201", 
+                    tags: ["# DeepGEMM", "# silu_mul FP8 Triton kernel", "# int32 overflow"] 
+                },
+                { 
+                    desc: "This PR fixed a crash during long-context inference (>16k tokens) for MLA-based models (e.g., DeepSeek-V2/V3/R1) by ensuring input tensor contiguity in the per_token_quant_int8 kernel.", 
+                    link: "https://github.com/vllm-project/vllm/pull/31637", 
+                    tags: ["# MLA", "# DeepSeek", "# Triton kernel"] 
                 },
                 { 
                     desc: "This PR fixed garbled model outputs after wake-up when using FP8 KV-cache under sleep mode level 2, addressing issues on both NVIDIA and AMD platforms.", 
