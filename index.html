@@ -119,7 +119,7 @@
                 <img src="172162397000-213.JPG" alt="Vensen mu" class="avatar">
                 <div class="bio-info">
                     <h1>Vensen (Mu Xiaohui)</h1>
-                    <p><b>AI Infrastructure Engineer</b> | <b>RL-Kernel Author, cutlass, PyTorch, vLLM Contributor, DeepSpeed Top 90 Contributor</b> </p>
+                    <p><b>AI Infrastructure Engineer</b> | <b>RL-Kernel Author, vime maintainer, cutlass, PyTorch, vLLM Contributor and DeepSpeed Top 90 Contributor</b> </p>
                     <p>Previously, Senior Java Developer (7+ Years) | Expert in <b>Java Microservices Architecture and Data Lake</b> & <b>DevOps</b></p>
                     
                     <div class="contact-bar">
@@ -185,11 +185,12 @@
             <div id="ai-pane" class="tab-pane active">
                  <div class="project-block">
                     <div class="project-meta">
-                        <h3>1. Top-tier AI Project Contributions</h3>
+                        <h3>1. Top-tier AI Project Contributions &amp; Maintenance</h3>
                         <p>Actively contributing to industry-leading open-source AI frameworks, focusing on kernel optimization and inference stability.</p>
                     </div>
                     <div class="diagram-frame" style="flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
                         <div class="pr-tabs-nav">
+                            <button class="pr-tab-btn" onclick="switchPRTab('rlkernel')">RL-Kernel</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('cutlass')">cutlass</button>
                             <button class="pr-tab-btn active" onclick="switchPRTab('pytorch')">PyTorch</button>
                             <button class="pr-tab-btn" onclick="switchPRTab('vLLM')">vLLM</button>
@@ -277,7 +278,7 @@
                     <li>17. Has a holistic DevOps mindset and hands-on experience with parts of the DevOps technology stack.</li>
                     <li>18. Experienced in developing RAG (Retrieval-Augmented Generation) systems for domain-specific question answering.</li>
                     <li>19. Experienced in model fine-tuning and LLM inference acceleration.</li>
-                    <li>20. Contributor to top AI projects such as cutlass, PyTorch, vLLM, vLLM-omni, DeepSpeed, Transformers, Ray, with a main focus on making more core contributions to cutlass, PyTorch and vLLM, vLLM-omni, DeepSpeed.</li>
+                    <li>20. Contributor to top AI projects such as cutlass, PyTorch, vLLM, vLLM-omni, DeepSpeed, Transformers, Ray, with a main focus on making more core contributions to RL-Kernel, cutlass, PyTorch and vLLM, DeepSpeed.</li>
                 </ul>
             </div>
         </section>
@@ -304,6 +305,163 @@
         }
 
         const prData = {
+           rlkernel: [
+    {
+        desc: "README Benchmark Alignment: Synchronized CUDA H100 and ROCm MI300X consistency figures with the published blog, added 200-step performance matrices, and improved Quick Start formatting.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/436",
+        tags: ["# Documentation", "# H100", "# MI300X", "# Benchmarks"]
+    },
+    {
+        desc: "ROCm Consistency Results: Updated README figures with the G10/G11 200-step train-rollout consistency and mean LogP-difference results on MI300X.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/425",
+        tags: ["# ROCm", "# MI300X", "# LogP", "# Documentation"]
+    },
+    {
+        desc: "Ascend Runtime Integration: Promoted deterministic Ascend runtime, operator implementations, and cross-configuration kernel validation into the main branch.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/417",
+        tags: ["# Ascend", "# NPU", "# Deterministic Kernels", "# Validation"]
+    },
+    {
+        desc: "ROCm Runtime Integration: Promoted deterministic ROCm runtime and kernel validation into the main branch, bringing together strict compute, communication, and framework integration.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/401",
+        tags: ["# ROCm", "# Runtime Integration", "# Determinism", "# Validation"]
+    },
+    {
+        desc: "MFMA GEMM and Chunked Attention: Added batch-invariant MFMA GEMM on MI300X and chunked-KV Triton attention to accelerate strict train-rollout execution while preserving numerical consistency.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/396",
+        tags: ["# ROCm", "# MFMA", "# Triton", "# Batch Invariance"]
+    },
+    {
+        desc: "Graph-Safe ROCm Rollout: Accelerated strict VIME rollout with direct paged AITER/CK attention, cached metadata, direct-output projections, and HIP Graph-safe deterministic IPC collectives.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/390",
+        tags: ["# ROCm", "# AITER / CK", "# HIP Graph", "# Rollout Optimization"]
+    },
+    {
+        desc: "End-to-End Attention Ablation: Added a ROCm P/P, P/R, R/P, and R/R attention comparison matrix through real VIME orchestration, with Megatron/vLLM runtime evidence and fallback rejection.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/385",
+        tags: ["# ROCm", "# VIME", "# Megatron / vLLM", "# Ablation"]
+    },
+    {
+        desc: "ROCm Collective Build Fix: Replaced CUDA-specific device code with HIP-compatible atomics, polling, BF16 types, and FP32 addition, and removed NVIDIA driver linkage from ROCm builds.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/380",
+        tags: ["# ROCm", "# HIP", "# Deterministic Collectives", "# Build Fix"]
+    },
+    {
+        desc: "Feature and Platform Documentation: Reorganized the README around project architecture, operator coverage, and the validated Qwen3-8B/VIME path, clarifying current support boundaries.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/374",
+        tags: ["# Documentation", "# Architecture", "# Qwen3-8B", "# Platform Support"]
+    },
+    {
+        desc: "Deterministic RCCL Collectives: Implemented ROCm AllGather, AllReduce, and ReduceScatter using RCCL for transport and a fixed balanced rank tree for floating-point reduction.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/356",
+        tags: ["# ROCm", "# RCCL", "# Fixed Reduction Order", "# TP / CP"]
+    },
+    {
+        desc: "Short-Token FFN Gradient Optimization: Added a tiled CUDA outer-product kernel for short-token weight gradients, avoiding input transposes while preserving deterministic FP32 accumulation and BF16 rounding.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/351",
+        tags: ["# CUDA", "# GEMM Backward", "# FFN", "# Performance"]
+    },
+    {
+        desc: "Multi-Architecture ROCm Builds: Added HIP-aware extension builds, configurable AMD GPU targets, ROCm Docker environments, and portable LogP reductions while preserving existing CUDA build behavior.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/316",
+        tags: ["# ROCm / CUDA", "# HIPify", "# Multi-Architecture", "# Docker"]
+    },
+    {
+        desc: "WS2 Validation Rollback: Reverted the Qwen3-8B TP=2, CP=2 forward integration test and its validation workflow introduced in PR #281.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/282",
+        tags: ["# Revert", "# WS2", "# Integration Tests", "# Maintenance"]
+    },
+    {
+        desc: "Distributed Qwen3 FFN Validation: Added a four-rank TP=2, CP=2 forward integration test for deterministic Gate/Up GEMM and SwiGLU Down execution. Subsequently reverted by PR #282.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/281",
+        tags: ["# Qwen3-8B", "# TP / CP", "# H200", "# Subsequently Reverted"]
+    },
+    {
+        desc: "SM90 GPU CI Repair: Fixed empty environment-flag parsing and routed GPU CI to H100 SXM hardware for Hopper-specific kernel builds and tests.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/221",
+        tags: ["# GPU CI", "# H100", "# SM90", "# Build Fix"]
+    },
+    {
+        desc: "Batch-Invariant GEMM: Implemented deterministic forward and backward GEMM with fixed accumulation order, BF16 inputs, FP32 accumulation, and invariance tests across batch sizes, chunks, and padding.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/180",
+        tags: ["# Deterministic GEMM", "# CUDA / Triton", "# Forward / Backward", "# Batch Invariance"]
+    },
+    {
+        desc: "Architecture Diagram Maintenance: Updated the architecture illustration to reflect additional accelerator platforms and removed the redundant automatic reviewer workflow in favor of CODEOWNERS.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/177",
+        tags: ["# Architecture", "# Documentation", "# CI", "# CODEOWNERS"]
+    },
+    {
+        desc: "Fork PR GPU CI Support: Enabled GPU CI for external fork pull requests and pinned privileged orchestration checkout to the trusted base commit.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/105",
+        tags: ["# GitHub Actions", "# Fork PRs", "# GPU CI", "# Trusted Checkout"]
+    },
+    {
+        desc: "Project Architecture Documentation: Reworked the README to explain operator-level train-inference consistency, memory efficiency, framework boundaries, and integration through operator hooks.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/99",
+        tags: ["# Documentation", "# Train-Inference Consistency", "# Architecture", "# Operator Hooks"]
+    },
+    {
+        desc: "On-Demand GPU CI: Added label-gated RunPod GPU testing with automated provisioning, remote pytest execution, and pod cleanup.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/92",
+        tags: ["# GPU CI", "# RunPod", "# GitHub Actions", "# Automated Testing"]
+    },
+    {
+        desc: "Benchmark Measurement Fixes: Corrected the VRAM baseline to measure overhead above input allocations, added a TRL comparison, and updated sampling benchmarks for FlashInfer API compatibility.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/79",
+        tags: ["# Benchmarks", "# VRAM", "# TRL", "# FlashInfer"]
+    },
+    {
+        desc: "Prefix-Shared Fused Attention: Implemented a CUDA attention kernel for GRPO/PPO response groups that reuses shared prompt KV data without expanding the KV cache across responses.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/71",
+        tags: ["# CUDA Attention", "# GRPO / PPO", "# Shared Prefix", "# KV Cache"]
+    },
+    {
+        desc: "README Logo Path Fix: Repaired the broken official logo reference in the root README.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/62",
+        tags: ["# Documentation", "# README", "# Maintenance"]
+    },
+    {
+        desc: "Community Branding Update: Replaced the temporary mascot with the official flame-and-circuit logo, updated documentation assets, and adjusted pre-commit configuration for the image.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/59",
+        tags: ["# Branding", "# Documentation", "# Pre-commit"]
+    },
+    {
+        desc: "Project Rename and CPU LogP Precision: Renamed the project to RL-Kernel and fixed CPU fallback LogP computation with FP32 accumulation and correctly typed gather indices.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/53",
+        tags: ["# Refactoring", "# LogP", "# FP32", "# CPU Fallback"]
+    },
+    {
+        desc: "Operator Hardware Abstraction: Restructured operator wrappers into CUDA, ROCm, Triton, and PyTorch backends, with lazy registry dispatch and a pure PyTorch reference implementation.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/37",
+        tags: ["# Hardware Abstraction", "# Kernel Registry", "# Multi-Backend", "# Refactoring"]
+    },
+    {
+        desc: "TMA-Accelerated Fused LogP: Added a Hopper-oriented fused LogP kernel using TMA, warp specialization, and tiled online softmax to reduce intermediate memory traffic.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/26",
+        tags: ["# CUDA", "# TMA", "# Warp Specialization", "# Fused LogP"]
+    },
+    {
+        desc: "CPU CI Foundation: Established GitHub Actions linting, type checking, and pytest workflows, with pre-commit automation and hardware-independent dispatch tests.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/24",
+        tags: ["# GitHub Actions", "# Ruff", "# mypy", "# pytest"]
+    },
+    {
+        desc: "Unified Sampling and LogP Interface: Added backend-aware sampling and selected-token LogP interfaces, FlashInfer integration, and GRPO memory/latency benchmarking.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/3",
+        tags: ["# Sampling", "# FlashInfer", "# LogP", "# GRPO"]
+    },
+    {
+        desc: "Kernel Registry and Logging: Implemented hardware-aware operator routing, centralized logging with duplicate-message suppression, and improved CPU/GPU context initialization.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/2",
+        tags: ["# Kernel Registry", "# CUDA / ROCm", "# Logging", "# Dispatch"]
+    },
+    {
+        desc: "Hardware-Aware Platform Context: Introduced CUDA/ROCm detection, a platform abstraction module, and automatic dtype selection with CPU fallback.",
+        link: "https://github.com/RL-Align/RL-Kernel/pull/1",
+        tags: ["# CUDA / ROCm", "# Device Detection", "# Dtype Selection", "# Platform Abstraction"]
+    }
+],
             cutlass: [
                 { 
                     desc: "Modify CuTeDSL to resolve the issue of dynamic shape arguments not being passed to the JIT kernel.", 
@@ -415,7 +573,9 @@
             currentPRPage = 1;
             document.querySelectorAll('.pr-tab-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.innerText.toLowerCase() === project.toLowerCase()) btn.classList.add('active');
+                if (btn.innerText.trim().toLowerCase().replace(/[-\s]/g, '') === project.toLowerCase().replace(/[-\s]/g, '')) {
+                     btn.classList.add('active');
+                }
             });
             renderPRs();
         }
